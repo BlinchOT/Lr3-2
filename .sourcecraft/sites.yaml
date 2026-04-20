@@ -1,4 +1,3 @@
-# Файл: .sourcecraft/sites.yaml
-sites:
-  - root: docs
-    ref: main
+site:
+  root: "docs"
+  ref: "main"
