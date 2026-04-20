@@ -17,7 +17,7 @@ tasks:
       - name: copy-files
         script:
           - mkdir -p site
-          - cp -r docs/* site/
+          - cp -r docs_html/* site/
         artifacts:
           paths:
             - site/*
