@@ -1,0 +1,10 @@
+# Файл: .sourcecraft/ci.yaml
+version: 1
+jobs:
+  - name: "deploy-site"
+    script: |
+      echo "Сайт уже собран в папке docs. Просто копируем его."
+      mkdir -p site
+      cp -r docs/* site/
+    artifacts:
+      - "site/*"
