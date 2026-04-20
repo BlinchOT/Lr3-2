@@ -1,10 +1,23 @@
 # Файл: .sourcecraft/ci.yaml
-version: 1
-jobs:
-  - name: "deploy-site"
-    script: |
-      echo "Сайт уже собран в папке docs. Просто копируем его."
-      mkdir -p site
-      cp -r docs/* site/
+on:
+  push:
+    - workflows: [ "deploy-site" ]
+      filter:
+        branches: [ "main" ]
+
+workflows:
+  deploy-site:
+    tasks:
+      - name: "deploy-task"
+
+tasks:
+  - name: "deploy-task"
+    cubes:
+      - name: "copy-files"
+        script: |
+          echo "Копируем файлы сайта из папки docs в site"
+          mkdir -p site
+          cp -r docs/* site/
+          echo "Копирование завершено."
     artifacts:
       - "site/*"
