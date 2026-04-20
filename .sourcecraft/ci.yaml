@@ -1,4 +1,3 @@
-# Файл: .sourcecraft/ci.yaml
 on:
   push:
     - workflows: [ "deploy-site" ]
@@ -19,5 +18,6 @@ tasks:
           mkdir -p site
           cp -r docs/* site/
           echo "Копирование завершено."
-    artifacts:
-      - "site/*"
+        artifacts:
+          paths:
+            - "site/*"
